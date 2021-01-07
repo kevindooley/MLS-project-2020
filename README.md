@@ -1,5 +1,5 @@
-# Machine Learning & Statistics Tasks 2020
-Tasks 2020 Assessment by Kevin Dooley
+# Machine Learning & Statistics Projecy 2020
+Project 2020 Assessment by Kevin Dooley
 
 ### Background
 This repository contains the completed Machine Learning and Statistics Project 2020. The project is worth 50% of the total marks for this module. All aspects of this project are contained in a git repository and submitted up to Moodle prior to the project deadline on the 08th January 2021.
