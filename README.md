@@ -52,7 +52,7 @@ See `Getting Started` above to clone respository and download docker from https:
 Assuming you have the respository on your desktop and docker now installed, follow the below steps.
 
 1. Enter `docker --version` on command line to confirm docker is downloaded on desktop.
-2. On command line, enter `docker build . -t project-app` . This will build a docker image of your repository, in the current directory. The image contains all designs for your container to run - it is sort of like the schematics.
+2. On command line, enter `docker build . -t project-image` . This will build a docker image of your repository, in the current directory. The image contains all designs for your container to run - it is sort of like the schematics.
 3.On command line, enter `docker run --name project-container -d -p 5000:5000 project-image` 
 4. You can now run the container
 
