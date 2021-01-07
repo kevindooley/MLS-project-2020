@@ -55,3 +55,12 @@ Assuming you have the respository on your desktop and docker now installed, foll
 2. On command line, enter `docker build . -t project-app` . This will build a docker image of your repository, in the current directory. The image contains all designs for your container to run - it is sort of like the schematics.
 3.On command line, enter `docker run --name project-container -d -p 5000:5000 project-image` 
 4. You can now run the container
+
+### Python Packages used in this project
+1. NumPy is a package for Python for scientific computing. It supports large, multidimensional arrays and matrices, meaning it has a wide array of applications specifically used to generate pseudo arrays and do simulations. 
+2. SciPy is a Python-based open-source library for scientific computing and mathematics. It contains modules that support optimisation, linear algebra, integration and inerpolation. 
+3. Seaborn is a high-level Python data visualisation library used for making attractive and informative statistical plots. It acts as a wrapper over matplotlib, and it’s used in conjunction with NumPy and pandas data structures
+4. Matplotlib similar to seaborn is a toolkit used the visualisation of data. Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms.
+5. Keras  is a powerful and easy-to-use free open source Python library for developing and evaluating deep learning models. It allows you to define and train neural network models in just a few lines of code utilising the Theano and TensorFlow libraries.
+6. Tensorflow is an open source library for numerical computation and large-scale machine learning. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks. It allows us to build models and serve us in ways which wernt possible before as it removes the need for heavy manual logic.
+7. Docker is an application build and deployment tool. It enables developers to package applications into containers—standardized executable components that combine application source code with all the operating system (OS) libraries and dependencies required to run the code in any environment. Basically, you can package your code with dependencies into a deployable unit called a container and that container can then be run on any environment. 
