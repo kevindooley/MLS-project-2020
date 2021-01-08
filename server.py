@@ -2,7 +2,7 @@
 from flask import Flask,url_for, request,redirect, abort,jsonify
 # numpy for numerical work.
 import numpy as np
-
+import pickle
 #import keras - https://towardsdatascience.com/deploying-keras-deep-learning-models-with-flask-5da4181436a2
 import tensorflow.keras as kr
 from numpy import loadtxt
@@ -10,6 +10,9 @@ from keras.models import load_model
 
 # Create a new web app.
 app = Flask(__name__,static_url_path='', static_folder='static')
+
+#load linear model
+#loaded_model = pickle.load(open('reg.sav', 'rb'))
 
 # load neural network model
 model = load_model("neural_model.h5")
@@ -28,6 +31,15 @@ def home():
 def prediction(wind):
   neural = model.predict([wind]) # creating variable neural which contains model prediction 
   return str(neural[0][0]) # return result
+
+
+# @app.route("/api/linear/<int:lin>", methods=["GET"]) 
+# @app.route("/api/linear/<float:lin>", methods=["GET"]) 
+# def linear(lin):
+#   reg_model = loaded_model([lin]) 
+#   return reg_model
+# getting numpy not callable error for linear
+
 
 #practice to connect to server
 # Add uniform route.

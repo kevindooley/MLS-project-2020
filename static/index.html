@@ -43,10 +43,13 @@
 
   </style>
   <body>
-    <h1>Model Prediction</h1>
+    <h1>Wind Energy Model Prediction - Neuron Network Prediction </h1>
     <hr>
     <br>
-    <h3>Click the `Predicted Power` button below to see model</h3>
+    <h3>Enter a wind speed  into the box below</h3>
+    <h3>Click the `Predicted Power` button below to see the predicted power output of wind speed entered above</h3>
+    <br>
+    <br>
     <div class="container">
         <div class="row">
           <div class="col-sm">
@@ -57,8 +60,8 @@
           <div class="col-sm">
             <button type="button" onclick="getModelPrediction()" class="btn btn-primary" id="pointer" style="width:1110px; margin:0 auto;">Predicted Power</button>
             <br>
-            <hr>
-            <b>Neural Network Model Prediction:</b> <div id="model" style="display: none;"></div> <!-- displays post prediction --> 
+            <hr> <!-- displays post prediction --> 
+            <b>Neural Network Model Prediction:</b> <div id="model" style="display: none;"></div> 
           </div>
         </div>
       </div>
@@ -66,21 +69,23 @@
    
 
     <script>
-        // Adapted from stack overflow posts.
+        // Adapted lecture
         // adapted from https://github.com/kevindooley/datarepresenation/blob/main/staticpages/index.html
         // adapted from https://stackoverflow.com/questions/60720889/how-to-display-a-returned-input-in-flask-using-ajax
-        // datarepresentation lectures also used. 
+        // datarepresentation lectures  - need to link
 
     host = window.location.origin; // set host for AJAX to resolve host
     output = document.getElementById("model").style = "display: none;"  // javascript to get element model. display set to do not show
 
 
-    //call function 
+    //call function once predicted power button is clicked
     function getModelPrediction(){
         
-        wind = Number(document.getElementById("Input").value); //get the wind input from the text input box
+        wind = Number(document.getElementById("Input").value); //get the wind input from the text input box. 
         
-        // Using ajax do a http GET to server
+        // Using ajax and GEt to connect to server
+        // output result to console & webpage
+        // style the output
         $.ajax({
             "url": host + "/api/predict/" + wind,
             "method":"GET",
