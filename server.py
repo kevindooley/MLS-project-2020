@@ -29,7 +29,7 @@ def prediction(wind):
   neural = model.predict([wind]) # creating variable neural which contains model prediction 
   return str(neural[0][0]) # return result
 
-#practice to connact to server
+#practice to connect to server
 # Add uniform route.
 # @app.route('/api/uniform')
 # def uniform():

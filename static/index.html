@@ -35,12 +35,13 @@
     <div class="container">
         <div class="row">
           <div class="col-sm">
-            <input class="form-control" id="output" type="text" placeholder="Enter wind speed in here..." readonly>
+            <input class="form-control" type="text" id="windInput" placeholder="Enter wind speed in here...">
           </div>
         </div>
         <div class="row">
           <div class="col-sm">
-            <button type="button" class="btn btn-primary" id="normal-button">Normal</button>
+            <button type="button" onclick="getModelPrediction()" class="btn btn-primary">Predicted Power</button>
+            Neural Network Model Prediction: <div id="model" style="display: none;"></div> <!-- will be displayed after the prediction is made --> 
           </div>
         </div>
       </div>
@@ -49,13 +50,39 @@
 
     <script>
         // Adapted from stack overflow posts.
-        $("#normal-button").click(function(e) {
-            e.preventDefault();
-            $.getJSON("/api/normal", function(data) {
-                $('#output').val(data.value);
-            });
-        });
+        // adapted from https://github.com/kevindooley/datarepresenation/blob/main/staticpages/index.html
+        // adapted from https://stackoverflow.com/questions/60720889/how-to-display-a-returned-input-in-flask-using-ajax
+        // datarepresentation lectures also used. 
 
+    host = window.location.origin; // set host for AJAX to resolve host
+    output = document.getElementById("model").style = "display: none;"  // get the prediction element and hide
+
+
+    //call function 
+    function getModelPrediction(){
+        
+        wind = Number(document.getElementById("windInput").value); //get the wind input from the text input box
+        
+        // Using ajax do a http GET to server
+        $.ajax({
+            "url": host + "/api/predict/" + wind,
+            "method":"GET",
+            "data":"",
+            "dataType": "JSON",
+            "success":function(result){
+                            console.log(result);
+                            output = document.getElementById("model"); 
+                            output.innerText=result;    
+                            output.style="display: block;"; 
+                            
+                            
+                        },
+            "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+            }
+        });
+        
+    }
     </script>
   </body>
 </html>
