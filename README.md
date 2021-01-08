@@ -1,4 +1,4 @@
-# Machine Learning & Statistics Projecy 2020
+# Machine Learning & Statistics Project 2020
 Project 2020 Assessment by Kevin Dooley
 
 ### Background
@@ -40,7 +40,7 @@ To run this repository you will need certain modules or packages. These are all 
 ### Run the server
 1. Enter the below onto your command line. This will run the flask server.
 ```
-set FLASK_APP=rando.py
+set FLASK_APP=server.py
 python -m flask run
 ```
 2. To check that connection has been made with the server, run `curl -i http://localhost:5000/` on a new command console. Do not run the above curl on the same console as the flask server. 
