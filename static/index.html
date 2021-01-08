@@ -13,9 +13,13 @@
 
     <title>Machine Learning and Statistics Project 2020</title>
   </head>
-
+<!--style contains css for the webpage-->
   <style>
     h1{
+      text-align:center;
+    }
+
+    h3{
       text-align:center;
     }
 
@@ -28,20 +32,33 @@
       background-color: #E5E5F7;
 
     }
+
+    .pointer {
+				cursor: pointer; /* mouse turns to pointer when over login*/
+    }
+
+    b {
+      font-size:150%;
+    }
+
   </style>
   <body>
     <h1>Model Prediction</h1>
     <hr>
+    <br>
+    <h3>Click the `Predicted Power` button below to see model</h3>
     <div class="container">
         <div class="row">
           <div class="col-sm">
-            <input class="form-control" type="text" id="windInput" placeholder="Enter wind speed in here...">
+            <input class="form-control" type="text" id="Input" placeholder="Enter wind speed in here...">
           </div>
         </div>
         <div class="row">
           <div class="col-sm">
-            <button type="button" onclick="getModelPrediction()" class="btn btn-primary">Predicted Power</button>
-            Neural Network Model Prediction: <div id="model" style="display: none;"></div> <!-- will be displayed after the prediction is made --> 
+            <button type="button" onclick="getModelPrediction()" class="btn btn-primary" id="pointer" style="width:1110px; margin:0 auto;">Predicted Power</button>
+            <br>
+            <hr>
+            <b>Neural Network Model Prediction:</b> <div id="model" style="display: none;"></div> <!-- displays post prediction --> 
           </div>
         </div>
       </div>
@@ -55,13 +72,13 @@
         // datarepresentation lectures also used. 
 
     host = window.location.origin; // set host for AJAX to resolve host
-    output = document.getElementById("model").style = "display: none;"  // get the prediction element and hide
+    output = document.getElementById("model").style = "display: none;"  // javascript to get element model. display set to do not show
 
 
     //call function 
     function getModelPrediction(){
         
-        wind = Number(document.getElementById("windInput").value); //get the wind input from the text input box
+        wind = Number(document.getElementById("Input").value); //get the wind input from the text input box
         
         // Using ajax do a http GET to server
         $.ajax({
@@ -74,8 +91,11 @@
                             output = document.getElementById("model"); 
                             output.innerText=result;    
                             output.style="display: block;"; 
-                            
-                            
+                            output.style.color="Black";
+                            output.style.fontSize = "x-large";
+                            output.style.fontStyle = "oblique";
+                            output.style.border = "thick solid #3392FF";
+                            output.style.textAlign = "center";
                         },
             "error":function(xhr,status,error){
                     console.log("error: "+status+" msg:"+error);
